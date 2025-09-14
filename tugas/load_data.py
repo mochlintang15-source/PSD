@@ -3,15 +3,13 @@ from sqlalchemy import create_engine
 import os
 
 # --- PENGATURAN ---
-# Ganti dengan detail koneksi PostgreSQL Anda
 db_user = 'postgres'
-db_password = '123456789' # Ganti dengan password Anda
+db_password = '123456789' 
 db_host = 'localhost'
 db_port = '5432'
 db_name = 'sains_data'
 
-# Ganti dengan nama file CSV dan nama tabel yang diinginkan
-csv_file_path = 'risk_factors_cervical_cancer.csv' # Pastikan file ini ada di folder yang sama
+csv_file_path = 'risk_factors_cervical_cancer.csv' 
 table_name = 'penjualan'
 
 # --- PROSES ---
