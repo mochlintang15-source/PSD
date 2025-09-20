@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'iris_data';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="📊 Eksplorasi Data" href="EksplorasiData.html" />
+    <link rel="prev" title="📊 Eksplorasi Data (EDA)" href="EksplorasiData.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,7 +182,12 @@
 <li class="toctree-l1"><a class="reference internal" href="myintro.html">my introdoction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MemahamiBisnis.html">Memahami Bisnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataUnderstanding.html">Data Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EksplorasiData.html">📊 Eksplorasi Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EksplorasiData.html">📊 Eksplorasi Data (EDA)</a></li>
+
+
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Analisis Clustering &amp; Anomaly Detection dengan PyCaret</a></li>
 </ul>
 
@@ -445,124 +450,19 @@ Hasil akhir akan divisualisasikan di <strong>Power BI</strong>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pycaret in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (3.3.2)
-Requirement already satisfied: scikit-learn&gt;1.4.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.4.2)
-Requirement already satisfied: markupsafe&gt;=2.0.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (3.0.2)
-Requirement already satisfied: ipython&gt;=5.5.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (8.37.0)
-Requirement already satisfied: imbalanced-learn&gt;=0.12.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.14.0)
-Requirement already satisfied: cloudpickle in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (3.1.1)
-Requirement already satisfied: joblib&lt;1.4,&gt;=1.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.3.2)
-Requirement already satisfied: sktime==0.26.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.26.0)
-Requirement already satisfied: pmdarima&gt;=2.0.4 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (2.0.4)
-Requirement already satisfied: plotly&gt;=5.14.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (6.3.0)
-Requirement already satisfied: tbats&gt;=1.1.3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.1.3)
-Requirement already satisfied: psutil&gt;=5.9.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (7.0.0)
-Requirement already satisfied: numpy&lt;1.27,&gt;=1.21 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.26.4)
-Requirement already satisfied: deprecation&gt;=2.1.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (2.1.0)
-Requirement already satisfied: schemdraw==0.15 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.15)
-Requirement already satisfied: numba&gt;=0.55.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.61.2)
-Requirement already satisfied: category-encoders&gt;=2.4.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (2.7.0)
-Requirement already satisfied: tqdm&gt;=4.62.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (4.67.1)
-Requirement already satisfied: statsmodels&gt;=0.12.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.14.5)
-Requirement already satisfied: requests&gt;=2.27.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (2.32.5)
-Requirement already satisfied: matplotlib&lt;3.8.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (3.7.5)
-Requirement already satisfied: ipywidgets&gt;=7.6.5 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (8.1.7)
-Requirement already satisfied: importlib-metadata&gt;=4.12.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (8.7.0)
-Requirement already satisfied: pyod&gt;=1.1.3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (2.0.5)
-Requirement already satisfied: jinja2&gt;=3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (3.1.6)
-Requirement already satisfied: scikit-plot&gt;=0.3.7 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.3.7)
-Requirement already satisfied: plotly-resampler&gt;=0.8.3.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (0.11.0)
-Requirement already satisfied: pandas&lt;2.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (2.1.4)
-Requirement already satisfied: kaleido&gt;=0.2.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.1.0)
-Requirement already satisfied: scipy&lt;=1.11.4,&gt;=1.6.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.11.4)
-Requirement already satisfied: yellowbrick&gt;=1.4 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (1.5)
-Requirement already satisfied: xxhash in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (3.5.0)
-Requirement already satisfied: nbformat&gt;=4.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (5.10.4)
-Requirement already satisfied: lightgbm&gt;=3.0.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pycaret) (4.6.0)
-Requirement already satisfied: scikit-base&lt;0.8.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from sktime==0.26.0-&gt;pycaret) (0.7.8)
-Requirement already satisfied: packaging in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from sktime==0.26.0-&gt;pycaret) (25.0)
-Requirement already satisfied: patsy&gt;=0.5.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from category-encoders&gt;=2.4.0-&gt;pycaret) (1.0.1)
-Requirement already satisfied: threadpoolctl&lt;4,&gt;=2.0.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from imbalanced-learn&gt;=0.12.0-&gt;pycaret) (3.6.0)
-Requirement already satisfied: zipp&gt;=3.20 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from importlib-metadata&gt;=4.12.0-&gt;pycaret) (3.23.0)
-Requirement already satisfied: prompt_toolkit&lt;3.1.0,&gt;=3.0.41 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (3.0.52)
-Requirement already satisfied: typing_extensions&gt;=4.6 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (4.15.0)
-Requirement already satisfied: exceptiongroup in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (1.3.0)
-Requirement already satisfied: matplotlib-inline in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.1.7)
-Requirement already satisfied: decorator in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (5.2.1)
-Requirement already satisfied: colorama in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.4.6)
-Requirement already satisfied: traitlets&gt;=5.13.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (5.14.3)
-Requirement already satisfied: pygments&gt;=2.4.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (2.19.2)
-Requirement already satisfied: stack_data in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.6.3)
-Requirement already satisfied: jedi&gt;=0.16 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipython&gt;=5.5.0-&gt;pycaret) (0.19.2)
-Requirement already satisfied: widgetsnbextension~=4.0.14 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (4.0.14)
-Requirement already satisfied: jupyterlab_widgets~=3.0.15 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (3.0.15)
-Requirement already satisfied: comm&gt;=0.1.3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from ipywidgets&gt;=7.6.5-&gt;pycaret) (0.2.3)
-Requirement already satisfied: logistro&gt;=1.0.8 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (1.1.0)
-Requirement already satisfied: choreographer&gt;=1.0.10 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (1.0.10)
-Requirement already satisfied: orjson&gt;=3.10.15 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (3.11.3)
-Requirement already satisfied: pytest-timeout&gt;=2.4.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from kaleido&gt;=0.2.1-&gt;pycaret) (2.4.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (11.3.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (3.2.4)
-Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (2.9.0.post0)
-Requirement already satisfied: cycler&gt;=0.10 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (4.59.2)
-Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (1.3.2)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from matplotlib&lt;3.8.0-&gt;pycaret) (1.4.9)
-Requirement already satisfied: jsonschema&gt;=2.6 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (4.25.1)
-Requirement already satisfied: fastjsonschema&gt;=2.15 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (2.21.2)
-Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from nbformat&gt;=4.2.0-&gt;pycaret) (5.8.1)
-Requirement already satisfied: llvmlite&lt;0.45,&gt;=0.44.0dev0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from numba&gt;=0.55.0-&gt;pycaret) (0.44.0)
-Requirement already satisfied: pytz&gt;=2020.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pandas&lt;2.2.0-&gt;pycaret) (2025.2)
-Requirement already satisfied: tzdata&gt;=2022.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pandas&lt;2.2.0-&gt;pycaret) (2025.2)
-Requirement already satisfied: narwhals&gt;=1.15.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from plotly&gt;=5.14.0-&gt;pycaret) (2.5.0)
-Requirement already satisfied: dash&gt;=2.11.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (3.2.0)
-Requirement already satisfied: tsdownsample&gt;=0.1.3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (0.1.4.1)
-Requirement already satisfied: setuptools!=50.0.0,&gt;=38.6.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pmdarima&gt;=2.0.4-&gt;pycaret) (65.5.0)
-Requirement already satisfied: urllib3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pmdarima&gt;=2.0.4-&gt;pycaret) (2.5.0)
-Requirement already satisfied: Cython!=0.29.18,!=0.29.31,&gt;=0.29 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pmdarima&gt;=2.0.4-&gt;pycaret) (3.1.3)
-Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from requests&gt;=2.27.1-&gt;pycaret) (2025.8.3)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from requests&gt;=2.27.1-&gt;pycaret) (3.4.3)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from requests&gt;=2.27.1-&gt;pycaret) (3.10)
-Requirement already satisfied: simplejson&gt;=3.19.3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from choreographer&gt;=1.0.10-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (3.20.1)
-Requirement already satisfied: Werkzeug&lt;3.2 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (3.1.3)
-Requirement already satisfied: Flask&lt;3.2,&gt;=1.0.4 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (3.1.2)
-Requirement already satisfied: nest-asyncio in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.6.0)
-Requirement already satisfied: retrying in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.4.2)
-Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.4 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.8.5)
-Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (2025.9.1)
-Requirement already satisfied: rpds-py&gt;=0.7.1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (0.27.1)
-Requirement already satisfied: attrs&gt;=22.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (25.3.0)
-Requirement already satisfied: referencing&gt;=0.28.4 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jsonschema&gt;=2.6-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (0.36.2)
-Requirement already satisfied: platformdirs&gt;=2.5 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (4.4.0)
-Requirement already satisfied: pywin32&gt;=300 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbformat&gt;=4.2.0-&gt;pycaret) (311)
-Requirement already satisfied: wcwidth in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from prompt_toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.2.13)
-Requirement already satisfied: pytest&gt;=7.0.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (8.4.2)
-Requirement already satisfied: six&gt;=1.5 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&lt;3.8.0-&gt;pycaret) (1.17.0)
-Requirement already satisfied: executing&gt;=1.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (2.2.1)
-Requirement already satisfied: pure-eval in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (0.2.3)
-Requirement already satisfied: asttokens&gt;=2.1.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from stack_data-&gt;ipython&gt;=5.5.0-&gt;pycaret) (3.0.0)
-Requirement already satisfied: blinker&gt;=1.9.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (1.9.0)
-Requirement already satisfied: click&gt;=8.1.3 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (8.2.1)
-Requirement already satisfied: itsdangerous&gt;=2.2.0 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from Flask&lt;3.2,&gt;=1.0.4-&gt;dash&gt;=2.11.0-&gt;plotly-resampler&gt;=0.8.3.1-&gt;pycaret) (2.2.0)
-Requirement already satisfied: pluggy&lt;2,&gt;=1.5 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (1.6.0)
-Requirement already satisfied: iniconfig&gt;=1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (2.1.0)
-Requirement already satisfied: tomli&gt;=1 in c:\users\nabil\appdata\local\programs\python\python310\lib\site-packages (from pytest&gt;=7.0.0-&gt;pytest-timeout&gt;=2.4.0-&gt;kaleido&gt;=0.2.1-&gt;pycaret) (2.2.1)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip available: 22.3.1 -&gt; 25.2
-[notice] To update, run: python.exe -m pip install --upgrade pip
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
 
 <span class="c1"># Mengimpor modul dengan alias untuk menghindari konflik</span>
-<span class="kn">import</span> <span class="nn">pycaret.clustering</span> <span class="k">as</span> <span class="nn">pyc</span>
-<span class="kn">import</span> <span class="nn">pycaret.anomaly</span> <span class="k">as</span> <span class="nn">pya</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pycaret.clustering</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pyc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pycaret.anomaly</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pya</span>
 
 <span class="c1"># --- Konfigurasi dan Muat Data (Tetap Sama) ---</span>
 <span class="n">db_user</span> <span class="o">=</span> <span class="s1">&#39;postgres&#39;</span>
@@ -584,19 +484,78 @@ Requirement already satisfied: tomli&gt;=1 in c:\users\nabil\appdata\local\progr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Mengimpor modul dengan alias untuk menghindari konflik</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pycaret.clustering</span> <span class="k">as</span> <span class="nn">pyc</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pycaret.anomaly</span> <span class="k">as</span> <span class="nn">pya</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># --- Konfigurasi dan Muat Data (Tetap Sama) ---</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pycaret&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset berhasil dimuat dari tabel &#39;iris_data&#39;.
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>sepal length</th>
+      <th>sepal width</th>
+      <th>petal length</th>
+      <th>petal width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -737,8 +696,8 @@ Requirement already satisfied: tomli&gt;=1 in c:\users\nabil\appdata\local\progr
 <h2>visualisasi hasil clustering<a class="headerlink" href="#visualisasi-hasil-clustering" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="c1"># Mengatur style visualisasi agar lebih menarik</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
@@ -888,8 +847,8 @@ Requirement already satisfied: tomli&gt;=1 in c:\users\nabil\appdata\local\progr
 <h2>visualisasi hasil deteksi outlier<a class="headerlink" href="#visualisasi-hasil-deteksi-outlier" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="c1"># Mengatur style visualisasi agar lebih menarik</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
@@ -1083,7 +1042,7 @@ Requirement already satisfied: tomli&gt;=1 in c:\users\nabil\appdata\local\progr
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">📊 Eksplorasi Data</p>
+        <p class="prev-next-title">📊 Eksplorasi Data (EDA)</p>
       </div>
     </a>
 </div>

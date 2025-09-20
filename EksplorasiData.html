@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>📊 Eksplorasi Data &#8212; My sample book</title>
+    <title>📊 Eksplorasi Data (EDA) &#8212; My sample book</title>
   
   
   
@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -183,7 +183,12 @@
 <li class="toctree-l1"><a class="reference internal" href="myintro.html">my introdoction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MemahamiBisnis.html">Memahami Bisnis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataUnderstanding.html">Data Understanding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">📊 Eksplorasi Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">📊 Eksplorasi Data (EDA)</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="iris_data.html">Analisis Clustering &amp; Anomaly Detection dengan PyCaret</a></li>
 </ul>
 
@@ -370,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>📊 Eksplorasi Data</h1>
+    <h1>📊 Eksplorasi Data (EDA)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,16 +385,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memuat-data">Memuat Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laporan-tipe-data">laporan tipe data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📊 Eksplorasi Data (EDA)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memuat-data">1. Memuat Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informasi-dasar-data">2. Informasi Dasar Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-values">3. Cek Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-tipe-data">4. Analisis Tipe Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-outlier">5. Analisis Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data">6. Distribusi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsistensi-data-kategorikal">7. Konsistensi Data Kategorikal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-antar-variabel">8. Korelasi Antar Variabel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values">9. Handling Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpan-data-bersih">10. Simpan Data Bersih</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Memuat Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-informasi-data">Cek Informasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laporan-missing-values">laporan missing values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-deteksi-outlier-pada-kolom-age">📊 Penjelasan Deteksi Outlier pada Kolom <code class="docutils literal notranslate"><span class="pre">Age</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah">📌 Langkah-langkah:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inti-dari-iqr">✨ Inti dari IQR</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laporan-duplikasi-data">laporan duplikasi data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Analisis tipe data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisi-outlier-numerik">Analisi outlier numerik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-numerik">Distribusi data numerik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsistensi-data">Konsistensi data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kolerasi-antar-table">Kolerasi antar table</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -400,61 +418,130 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data">
-<h1>📊 Eksplorasi Data<a class="headerlink" href="#eksplorasi-data" title="Link to this heading">#</a></h1>
-<p>Eksplorasi Data (Exploratory Data Analysis / EDA) merupakan tahap awal yang sangat penting dalam proses analisis data.<br />
-Tujuan dari eksplorasi data adalah untuk memahami struktur, pola, dan karakteristik utama dari dataset yang digunakan.</p>
-<p>Beberapa hal yang biasanya dilakukan pada tahap EDA, antara lain:</p>
-<ul class="simple">
-<li><p>Melihat bentuk umum dataset (jumlah baris, kolom, dan tipe data).</p></li>
-<li><p>Mengecek apakah ada data yang hilang (<em>missing values</em>).</p></li>
-<li><p>Mengetahui distribusi data.</p></li>
-<li><p>Mengidentifikasi adanya nilai ekstrem (<em>outliers</em>).</p></li>
-<li><p>Membuat visualisasi awal untuk memahami hubungan antar variabel.</p></li>
-</ul>
-<p>Tahap ini membantu kita menemukan insight awal sebelum melakukan pemodelan lebih lanjut.<br />
-Dengan eksplorasi data, kita bisa memastikan kualitas dataset serta memilih metode analisis yang tepat.</p>
-<hr class="docutils" />
+  <section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data-eda">
+<h1>📊 Eksplorasi Data (EDA)<a class="headerlink" href="#eksplorasi-data-eda" title="Link to this heading">#</a></h1>
 <section id="memuat-data">
-<h2>Memuat Data<a class="headerlink" href="#memuat-data" title="Link to this heading">#</a></h2>
+<h2>1. Memuat Data<a class="headerlink" href="#memuat-data" title="Link to this heading">#</a></h2>
+<p>Data diambil dari database PostgreSQL menggunakan <strong>SQLAlchemy</strong> dan <strong>pandas</strong>. Data ini kemudian dimasukkan ke dalam <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> agar lebih mudah dianalisis.</p>
+</section>
+<hr class="docutils" />
+<section id="informasi-dasar-data">
+<h2>2. Informasi Dasar Data<a class="headerlink" href="#informasi-dasar-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.info()</span></code> → mengetahui jumlah baris, jumlah kolom, serta tipe data tiap variabel (numerik/kategorikal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> → memberikan statistik deskriptif untuk data numerik (mean, min, max, quartile).</p></li>
+</ul>
+<p><strong>Tujuan:</strong> memberikan gambaran awal tentang bentuk data.</p>
+</section>
+<hr class="docutils" />
+<section id="cek-missing-values">
+<h2>3. Cek Missing Values<a class="headerlink" href="#cek-missing-values" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code> → menghitung jumlah nilai kosong per kolom.</p></li>
+<li><p>Persentase missing values dihitung agar tahu seberapa besar pengaruhnya.</p></li>
+</ul>
+<p><strong>Tujuan:</strong> mengetahui kualitas data dan strategi penanganan (hapus, isi dengan median/modus, dll).</p>
+</section>
+<hr class="docutils" />
+<section id="analisis-tipe-data">
+<h2>4. Analisis Tipe Data<a class="headerlink" href="#analisis-tipe-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Memisahkan kolom <strong>numerik</strong> (integer/float) dan <strong>kategorikal</strong> (string/objek).</p></li>
+<li><p>Analisis numerik (outlier, korelasi) berbeda dengan analisis kategorikal (frekuensi, konsistensi).</p></li>
+</ul>
+<p><strong>Tujuan:</strong> mempermudah pemilihan metode analisis sesuai tipe data.</p>
+</section>
+<hr class="docutils" />
+<section id="analisis-outlier">
+<h2>5. Analisis Outlier<a class="headerlink" href="#analisis-outlier" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Visualisasi menggunakan <strong>boxplot</strong> (<code class="docutils literal notranslate"><span class="pre">sns.boxplot</span></code>).</p></li>
+<li><p>Outlier terlihat sebagai titik yang jauh dari distribusi normal data.</p></li>
+</ul>
+<p><strong>Tujuan:</strong> mendeteksi nilai ekstrem yang dapat mempengaruhi analisis.</p>
+</section>
+<hr class="docutils" />
+<section id="distribusi-data">
+<h2>6. Distribusi Data<a class="headerlink" href="#distribusi-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Plot histogram (<code class="docutils literal notranslate"><span class="pre">df.hist</span></code>) untuk kolom numerik.</p></li>
+<li><p>Menunjukkan pola distribusi (normal, skewed/miring).</p></li>
+</ul>
+<p><strong>Tujuan:</strong> memahami sebaran data dan memutuskan transformasi jika perlu.</p>
+</section>
+<hr class="docutils" />
+<section id="konsistensi-data-kategorikal">
+<h2>7. Konsistensi Data Kategorikal<a class="headerlink" href="#konsistensi-data-kategorikal" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Mengecek nilai unik (<code class="docutils literal notranslate"><span class="pre">df[col].unique()</span></code>) dan distribusi kategori (<code class="docutils literal notranslate"><span class="pre">value_counts()</span></code>).</p></li>
+<li><p>Misalnya: kolom <code class="docutils literal notranslate"><span class="pre">jenis_kelamin</span></code> harusnya hanya “Laki-laki” dan “Perempuan”, tetapi bisa saja ada typo seperti “Lk” atau “Pr”.</p></li>
+</ul>
+<p><strong>Tujuan:</strong> menemukan ketidakkonsistenan label kategori.</p>
+</section>
+<hr class="docutils" />
+<section id="korelasi-antar-variabel">
+<h2>8. Korelasi Antar Variabel<a class="headerlink" href="#korelasi-antar-variabel" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Matriks korelasi (<code class="docutils literal notranslate"><span class="pre">df.corr()</span></code>) divisualisasikan dengan heatmap seaborn.</p></li>
+<li><p>Memberi gambaran variabel mana yang saling berhubungan kuat.</p></li>
+</ul>
+<p><strong>Tujuan:</strong> mencari pola hubungan antar variabel numerik.</p>
+</section>
+<hr class="docutils" />
+<section id="handling-missing-values">
+<h2>9. Handling Missing Values<a class="headerlink" href="#handling-missing-values" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Kolom numerik → diisi dengan median.</p></li>
+<li><p>Kolom kategorikal → diisi dengan modus (nilai terbanyak).</p></li>
+<li><p>Alternatif lain: hapus baris/kolom, atau gunakan metode imputasi lanjutan.</p></li>
+</ul>
+<p><strong>Tujuan:</strong> membuat data lebih lengkap sehingga siap untuk analisis lanjutan.</p>
+</section>
+<hr class="docutils" />
+<section id="simpan-data-bersih">
+<h2>10. Simpan Data Bersih<a class="headerlink" href="#simpan-data-bersih" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Setelah pembersihan (handling missing values, outlier, dll), data dapat disimpan ke <code class="docutils literal notranslate"><span class="pre">.csv</span></code>.</p></li>
+<li><p>Data bersih digunakan untuk tahap <strong>pemodelan</strong> atau analisis lanjutan.</p></li>
+</ul>
+<hr class="docutils" />
+<p>✨ <strong>Kesimpulan:</strong><br />
+Eksplorasi Data (EDA) bertujuan untuk memahami data sebelum dipakai pada analisis lanjutan atau machine learning.<br />
+Tahapan ini membantu mendeteksi error input, ketidakkonsistenan, missing values, outlier, serta menemukan pola awal dalam data.</p>
+</section>
+<section id="id1">
+<h2>Memuat Data<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import library yang diperlukan</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="c1"># --- Pengaturan Koneksi ke Sumber Data Asli (PostgreSQL) ---</span>
-<span class="c1"># Ganti dengan detail koneksi PostgreSQL Anda</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+
+<span class="c1"># --- Koneksi PostgreSQL ---</span>
 <span class="n">db_user</span> <span class="o">=</span> <span class="s1">&#39;postgres&#39;</span>
-<span class="n">db_password</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span> <span class="c1"># Ganti dengan password Anda</span>
+<span class="n">db_password</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span>  <span class="c1"># ganti dengan passwordmu</span>
 <span class="n">db_host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
 <span class="n">db_port</span> <span class="o">=</span> <span class="s1">&#39;5432&#39;</span>
-<span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;sains_data&#39;</span>
-<span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;penjualan&#39;</span> 
+<span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;rumahsakit&#39;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;data_master&#39;</span>
 
-<span class="c1"># --- Ambil Data dari PostgreSQL ---</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="c1"># Membuat koneksi ke database</span>
-    <span class="n">connection_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;postgresql://</span><span class="si">{</span><span class="n">db_user</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">db_password</span><span class="si">}</span><span class="s1">@</span><span class="si">{</span><span class="n">db_host</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">db_port</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">db_name</span><span class="si">}</span><span class="s1">&#39;</span>
-    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">connection_url</span><span class="p">)</span>
-    
-    <span class="c1"># Menjalankan query untuk mengambil seluruh data dari tabel</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s1">&#39;</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+<span class="c1"># Buat koneksi</span>
+<span class="n">connection_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;postgresql://</span><span class="si">{</span><span class="n">db_user</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">db_password</span><span class="si">}</span><span class="s1">@</span><span class="si">{</span><span class="n">db_host</span><span class="si">}</span><span class="s1">:</span><span class="si">{</span><span class="n">db_port</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">db_name</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">connection_url</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data dari tabel &#39;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&#39; di PostgreSQL berhasil dimuat.&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5 baris data pertama:&quot;</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="c1"># Ambil data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
 
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Terjadi error saat menghubungkan ke PostgreSQL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Data berhasil dimuat&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data dari tabel &#39;penjualan&#39; di PostgreSQL berhasil dimuat.
-5 baris data pertama:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Data berhasil dimuat
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -475,384 +562,418 @@ Dengan eksplorasi data, kita bisa memastikan kualitas dataset serta memilih meto
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Patient_ID</th>
       <th>Age</th>
-      <th>Number of sexual partners</th>
-      <th>First sexual intercourse</th>
-      <th>Num of pregnancies</th>
-      <th>Smokes</th>
-      <th>Smokes (years)</th>
-      <th>Smokes (packs/year)</th>
-      <th>Hormonal Contraceptives</th>
-      <th>Hormonal Contraceptives (years)</th>
-      <th>IUD</th>
-      <th>...</th>
-      <th>STDs: Time since first diagnosis</th>
-      <th>STDs: Time since last diagnosis</th>
-      <th>Dx:Cancer</th>
-      <th>Dx:CIN</th>
-      <th>Dx:HPV</th>
-      <th>Dx</th>
-      <th>Hinselmann</th>
-      <th>Schiller</th>
-      <th>Citology</th>
-      <th>Biopsy</th>
+      <th>Gender</th>
+      <th>Condition</th>
+      <th>Procedure</th>
+      <th>Cost</th>
+      <th>Length_of_Stay</th>
+      <th>Readmission</th>
+      <th>Outcome</th>
+      <th>Satisfaction</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>18</td>
-      <td>4.0</td>
-      <td>15.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>?</td>
-      <td>?</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
+      <td>45</td>
+      <td>Female</td>
+      <td>Heart Disease</td>
+      <td>Angioplasty</td>
+      <td>15000</td>
+      <td>5</td>
+      <td>No</td>
+      <td>Recovered</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>15</td>
-      <td>1.0</td>
-      <td>14.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>?</td>
-      <td>?</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>2</td>
+      <td>60</td>
+      <td>Male</td>
+      <td>Diabetes</td>
+      <td>Insulin Therapy</td>
+      <td>2000</td>
+      <td>3</td>
+      <td>Yes</td>
+      <td>Stable</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>34</td>
-      <td>1.0</td>
-      <td>?</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>?</td>
-      <td>?</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>3</td>
+      <td>32</td>
+      <td>Female</td>
+      <td>Fractured Arm</td>
+      <td>X-Ray and Splint</td>
+      <td>500</td>
+      <td>1</td>
+      <td>No</td>
+      <td>Recovered</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>52</td>
-      <td>5.0</td>
-      <td>16.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>37.0</td>
-      <td>37.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>?</td>
-      <td>?</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>4</td>
+      <td>75</td>
+      <td>Male</td>
+      <td>Stroke</td>
+      <td>CT Scan and Medication</td>
+      <td>10000</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Stable</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>46</td>
-      <td>3.0</td>
-      <td>21.0</td>
-      <td>4.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>15.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>?</td>
-      <td>?</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>5</td>
+      <td>50</td>
+      <td>Female</td>
+      <td>Cancer</td>
+      <td>Surgery and Chemotherapy</td>
+      <td>25000</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Recovered</td>
+      <td>4</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 36 columns</p>
 </div></div></div>
 </div>
 </section>
-<section id="laporan-tipe-data">
-<h2>laporan tipe data<a class="headerlink" href="#laporan-tipe-data" title="Link to this heading">#</a></h2>
+<section id="cek-informasi-data">
+<h2>Cek Informasi Data<a class="headerlink" href="#cek-informasi-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Melihat informasi dasar DataFrame, termasuk tipe data</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Laporan Tipe Data ---&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tipe data asli untuk setiap kolom:&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Info dataset: jumlah baris, kolom, tipe data</span>
 <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="c1"># Statistik deskriptif untuk kolom numerik</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Laporan Tipe Data ---
-Tipe data asli untuk setiap kolom:
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 858 entries, 0 to 857
-Data columns (total 36 columns):
- #   Column                              Non-Null Count  Dtype 
----  ------                              --------------  ----- 
- 0   Age                                 858 non-null    int64 
- 1   Number of sexual partners           858 non-null    object
- 2   First sexual intercourse            858 non-null    object
- 3   Num of pregnancies                  858 non-null    object
- 4   Smokes                              858 non-null    object
- 5   Smokes (years)                      858 non-null    object
- 6   Smokes (packs/year)                 858 non-null    object
- 7   Hormonal Contraceptives             858 non-null    object
- 8   Hormonal Contraceptives (years)     858 non-null    object
- 9   IUD                                 858 non-null    object
- 10  IUD (years)                         858 non-null    object
- 11  STDs                                858 non-null    object
- 12  STDs (number)                       858 non-null    object
- 13  STDs:condylomatosis                 858 non-null    object
- 14  STDs:cervical condylomatosis        858 non-null    object
- 15  STDs:vaginal condylomatosis         858 non-null    object
- 16  STDs:vulvo-perineal condylomatosis  858 non-null    object
- 17  STDs:syphilis                       858 non-null    object
- 18  STDs:pelvic inflammatory disease    858 non-null    object
- 19  STDs:genital herpes                 858 non-null    object
- 20  STDs:molluscum contagiosum          858 non-null    object
- 21  STDs:AIDS                           858 non-null    object
- 22  STDs:HIV                            858 non-null    object
- 23  STDs:Hepatitis B                    858 non-null    object
- 24  STDs:HPV                            858 non-null    object
- 25  STDs: Number of diagnosis           858 non-null    int64 
- 26  STDs: Time since first diagnosis    858 non-null    object
- 27  STDs: Time since last diagnosis     858 non-null    object
- 28  Dx:Cancer                           858 non-null    int64 
- 29  Dx:CIN                              858 non-null    int64 
- 30  Dx:HPV                              858 non-null    int64 
- 31  Dx                                  858 non-null    int64 
- 32  Hinselmann                          858 non-null    int64 
- 33  Schiller                            858 non-null    int64 
- 34  Citology                            858 non-null    int64 
- 35  Biopsy                              858 non-null    int64 
-dtypes: int64(10), object(26)
-memory usage: 241.4+ KB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 984 entries, 0 to 983
+Data columns (total 10 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   Patient_ID      984 non-null    int64 
+ 1   Age             984 non-null    int64 
+ 2   Gender          984 non-null    object
+ 3   Condition       984 non-null    object
+ 4   Procedure       984 non-null    object
+ 5   Cost            984 non-null    int64 
+ 6   Length_of_Stay  984 non-null    int64 
+ 7   Readmission     984 non-null    object
+ 8   Outcome         984 non-null    object
+ 9   Satisfaction    984 non-null    int64 
+dtypes: int64(5), object(5)
+memory usage: 77.0+ KB
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Patient_ID</th>
+      <td>984.0</td>
+      <td>500.329268</td>
+      <td>288.979531</td>
+      <td>1.0</td>
+      <td>250.75</td>
+      <td>500.5</td>
+      <td>750.25</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>984.0</td>
+      <td>53.754065</td>
+      <td>14.941135</td>
+      <td>25.0</td>
+      <td>45.00</td>
+      <td>55.0</td>
+      <td>65.00</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th>Cost</th>
+      <td>984.0</td>
+      <td>8367.479675</td>
+      <td>7761.990976</td>
+      <td>100.0</td>
+      <td>1000.00</td>
+      <td>6000.0</td>
+      <td>15000.00</td>
+      <td>25000.0</td>
+    </tr>
+    <tr>
+      <th>Length_of_Stay</th>
+      <td>984.0</td>
+      <td>37.663618</td>
+      <td>19.595805</td>
+      <td>1.0</td>
+      <td>21.00</td>
+      <td>38.0</td>
+      <td>54.25</td>
+      <td>76.0</td>
+    </tr>
+    <tr>
+      <th>Satisfaction</th>
+      <td>984.0</td>
+      <td>3.598577</td>
+      <td>0.883002</td>
+      <td>2.0</td>
+      <td>3.00</td>
+      <td>4.0</td>
+      <td>4.00</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="laporan-missing-values">
 <h2>laporan missing values<a class="headerlink" href="#laporan-missing-values" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah missing values di setiap kolom</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Laporan Missing Values ---&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data yang hilang (ditandai &#39;?&#39;) di setiap kolom:&quot;</span><span class="p">)</span>
-<span class="n">missing_values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">missing_values</span><span class="p">[</span><span class="n">missing_values</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># Hanya tampilkan kolom yang punya missing value</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Jumlah missing values per kolom</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="c1"># --- BARIS TAMBAHAN ---</span>
-<span class="c1"># Menghitung jumlah total missing values di seluruh dataset</span>
-<span class="n">total_missing_values</span> <span class="o">=</span> <span class="n">missing_values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Jumlah total missing values di seluruh dataset: </span><span class="si">{</span><span class="n">total_missing_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Persentase missing values</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Laporan Missing Values ---
-Jumlah data yang hilang (ditandai &#39;?&#39;) di setiap kolom:
-Series([], dtype: int64)
-
-Jumlah total missing values di seluruh dataset: 0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patient_ID        0.0
+Age               0.0
+Gender            0.0
+Condition         0.0
+Procedure         0.0
+Cost              0.0
+Length_of_Stay    0.0
+Readmission       0.0
+Outcome           0.0
+Satisfaction      0.0
+dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="penjelasan-deteksi-outlier-pada-kolom-age">
-<h2>📊 Penjelasan Deteksi Outlier pada Kolom <code class="docutils literal notranslate"><span class="pre">Age</span></code><a class="headerlink" href="#penjelasan-deteksi-outlier-pada-kolom-age" title="Link to this heading">#</a></h2>
-<p>Kode ini digunakan untuk <strong>mendeteksi outlier</strong> pada kolom <code class="docutils literal notranslate"><span class="pre">Age</span></code> dalam dataset <code class="docutils literal notranslate"><span class="pre">risk_factors_cervical_cancer.csv</span></code>.<br />
-Metode yang digunakan adalah <strong>Interquartile Range (IQR Method)</strong>.</p>
-<hr class="docutils" />
-<section id="langkah-langkah">
-<h3>📌 Langkah-langkah:<a class="headerlink" href="#langkah-langkah" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>Cari Q1 (Kuartil 1)</strong></p>
-<ul class="simple">
-<li><p>Titik 25% pertama dari data yang sudah diurutkan.</p></li>
-<li><p>Contoh: jika ada 100 data umur, Q1 adalah data pada posisi ke-25.</p></li>
-</ul>
-</li>
-<li><p><strong>Cari Q3 (Kuartil 3)</strong></p>
-<ul class="simple">
-<li><p>Titik 75% dari data yang sudah diurutkan.</p></li>
-<li><p>Contoh: jika ada 100 data umur, Q3 adalah data pada posisi ke-75.</p></li>
-</ul>
-</li>
-<li><p><strong>Hitung IQR</strong></p>
-<ul class="simple">
-<li><p>Rumus:<br />
-[
-IQR = Q3 - Q1
-]</p></li>
-<li><p>Hasilnya menunjukkan “jarak” 50% data di tengah (sebaran utama).</p></li>
-</ul>
-</li>
-<li><p><strong>Tentukan Batas Outlier</strong></p>
-<ul class="simple">
-<li><p><strong>Batas bawah</strong>:<br />
-[
-Q1 - 1.5 \times IQR
-]</p></li>
-<li><p><strong>Batas atas</strong>:<br />
-[
-Q3 + 1.5 \times IQR
-]</p></li>
-</ul>
-</li>
-<li><p><strong>Identifikasi Outlier</strong></p>
-<ul class="simple">
-<li><p>Data yang <strong>lebih kecil dari batas bawah</strong> atau <strong>lebih besar dari batas atas</strong> dianggap <strong>outlier</strong>.</p></li>
-</ul>
-</li>
-</ol>
 </section>
-<hr class="docutils" />
-<section id="inti-dari-iqr">
-<h3>✨ Inti dari IQR<a class="headerlink" href="#inti-dari-iqr" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>IQR fokus pada bagian tengah data (antara Q1 dan Q3).</p></li>
-<li><p>Data yang terlalu jauh di luar sebaran ini dianggap <strong>ekstrem</strong> → disebut <strong>outlier</strong>.</p></li>
-</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>Analisis tipe data<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek tipe data tiap kolom</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
 
-<span class="c1"># Asumsikan &#39;df&#39; sudah dimuat dari langkah sebelumnya</span>
-<span class="c1"># df = pd.read_csv(&#39;risk_factors_cervical_cancer.csv&#39;, na_values=&#39;?&#39;)</span>
+<span class="c1"># Pisahkan kolom numerik &amp; kategorikal</span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">cat_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="c1"># --- Laporan Outlier ---</span>
-<span class="c1"># Kita perlu mengubah kolom &#39;Age&#39; menjadi numerik HANYA untuk perhitungan ini</span>
-<span class="c1"># tanpa mengubah DataFrame aslinya.</span>
-<span class="n">age_numeric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kolom Numerik:&quot;</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kolom Kategorikal:&quot;</span><span class="p">,</span> <span class="n">cat_cols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Patient_ID         int64
+Age                int64
+Gender            object
+Condition         object
+Procedure         object
+Cost               int64
+Length_of_Stay     int64
+Readmission       object
+Outcome           object
+Satisfaction       int64
+dtype: object
+Kolom Numerik: [&#39;Patient_ID&#39;, &#39;Age&#39;, &#39;Cost&#39;, &#39;Length_of_Stay&#39;, &#39;Satisfaction&#39;]
+Kolom Kategorikal: [&#39;Gender&#39;, &#39;Condition&#39;, &#39;Procedure&#39;, &#39;Readmission&#39;, &#39;Outcome&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analisi-outlier-numerik">
+<h1>Analisi outlier numerik<a class="headerlink" href="#analisi-outlier-numerik" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="c1"># Hitung Q1, Q3, dan IQR</span>
-<span class="n">Q1</span> <span class="o">=</span> <span class="n">age_numeric</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">Q3</span> <span class="o">=</span> <span class="n">age_numeric</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
-<span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
-
-<span class="c1"># Tentukan batas atas dan batas bawah</span>
-<span class="n">batas_bawah</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
-<span class="n">batas_atas</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
-
-<span class="c1"># Identifikasi dan hitung outliers</span>
-<span class="n">outliers</span> <span class="o">=</span> <span class="n">age_numeric</span><span class="p">[(</span><span class="n">age_numeric</span> <span class="o">&lt;</span> <span class="n">batas_bawah</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">age_numeric</span> <span class="o">&gt;</span> <span class="n">batas_atas</span><span class="p">)]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Laporan Outlier untuk Kolom &#39;Age&#39; ---&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batas bawah dianggap outlier: </span><span class="si">{</span><span class="n">batas_bawah</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batas atas dianggap outlier: </span><span class="si">{</span><span class="n">batas_atas</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah outlier yang terdeteksi: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-
-<span class="c1"># --- BAGIAN VISUALISASI MENGGUNAKAN MATPLOTLIB ---</span>
-
-<span class="c1"># Membuat area plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-
-<span class="c1"># Membuat box plot horizontal</span>
-<span class="c1"># age_numeric.dropna() digunakan untuk mengabaikan missing values saat membuat plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">age_numeric</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Menambahkan judul dan label agar mudah dibaca</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Deteksi Outlier pada Kolom &quot;Age&quot; dengan Box Plot&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan plot</span>
+<span class="c1"># Boxplot tiap kolom numerik</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">num_cols</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Boxplot </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fdfc13f8fc82d5020671a6630c853e2f0f9dc18a5e1648638bc21a6f41ad8e3b.png" src="_images/fdfc13f8fc82d5020671a6630c853e2f0f9dc18a5e1648638bc21a6f41ad8e3b.png" />
+<img alt="_images/a04b9b77314c01ccded0221c9876cda491cde69a77caaa3a320d236c1a9acc92.png" src="_images/a04b9b77314c01ccded0221c9876cda491cde69a77caaa3a320d236c1a9acc92.png" />
+<img alt="_images/b319f7aee12b8e7aa739e0df265d29f22473fac332386df3ba89c9201ce78588.png" src="_images/b319f7aee12b8e7aa739e0df265d29f22473fac332386df3ba89c9201ce78588.png" />
+<img alt="_images/e6ce6f9dac2f347a078ed2670fd654998b5981f56410b956752d1811e396d64d.png" src="_images/e6ce6f9dac2f347a078ed2670fd654998b5981f56410b956752d1811e396d64d.png" />
+<img alt="_images/84860994a42385b4040336e1402781f9686b0d2677c8dda67912719ed09bbcdf.png" src="_images/84860994a42385b4040336e1402781f9686b0d2677c8dda67912719ed09bbcdf.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="distribusi-data-numerik">
+<h1>Distribusi data numerik<a class="headerlink" href="#distribusi-data-numerik" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Histogram distribusi numerik</span>
+<span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Distribusi Data Numerik&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Laporan Outlier untuk Kolom &#39;Age&#39; ---
-Batas bawah dianggap outlier: 2.00
-Batas atas dianggap outlier: 50.00
-Jumlah outlier yang terdeteksi: 8
-</pre></div>
-</div>
-<img alt="_images/689aee43379652787a84ebc4fb8344aa56849823fcb065388fb8d8b64e598aca.png" src="_images/689aee43379652787a84ebc4fb8344aa56849823fcb065388fb8d8b64e598aca.png" />
+<img alt="_images/72463d917486de78db6726dd05cdf07f2c7e89a3936d9ead7c6565d7d8c0042c.png" src="_images/72463d917486de78db6726dd05cdf07f2c7e89a3936d9ead7c6565d7d8c0042c.png" />
 </div>
 </div>
 </section>
-</section>
-<section id="laporan-duplikasi-data">
-<h2>laporan duplikasi data<a class="headerlink" href="#laporan-duplikasi-data" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="konsistensi-data">
+<h1>Konsistensi data<a class="headerlink" href="#konsistensi-data" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Laporan Data Duplikat ---</span>
-<span class="c1"># Menghitung jumlah baris duplikat</span>
-<span class="n">jumlah_duplikat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Laporan Data Duplikat ---&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah baris data yang terduplikasi sepenuhnya: </span><span class="si">{</span><span class="n">jumlah_duplikat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cek nilai unik tiap kolom kategorikal</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cat_cols</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kolom: </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Laporan Data Duplikat ---
-Jumlah baris data yang terduplikasi sepenuhnya: 23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kolom: Gender
+[&#39;Female&#39; &#39;Male&#39;]
+Gender
+Female    524
+Male      460
+Name: count, dtype: int64
+
+Kolom: Condition
+[&#39;Heart Disease&#39; &#39;Diabetes&#39; &#39;Fractured Arm&#39; &#39;Stroke&#39; &#39;Cancer&#39;
+ &#39;Hypertension&#39; &#39;Appendicitis&#39; &#39;Fractured Leg&#39; &#39;Heart Attack&#39;
+ &#39;Allergic Reaction&#39; &#39;Respiratory Infection&#39; &#39;Prostate Cancer&#39;
+ &#39;Childbirth&#39; &#39;Kidney Stones&#39; &#39;Osteoarthritis&#39;]
+Condition
+Fractured Leg            67
+Heart Attack             67
+Fractured Arm            66
+Hypertension             66
+Appendicitis             66
+Cancer                   66
+Stroke                   66
+Allergic Reaction        66
+Diabetes                 65
+Heart Disease            65
+Respiratory Infection    65
+Prostate Cancer          65
+Childbirth               65
+Kidney Stones            65
+Osteoarthritis           64
+Name: count, dtype: int64
+
+Kolom: Procedure
+[&#39;Angioplasty&#39; &#39;Insulin Therapy&#39; &#39;X-Ray and Splint&#39;
+ &#39;CT Scan and Medication&#39; &#39;Surgery and Chemotherapy&#39;
+ &#39;Medication and Counseling&#39; &#39;Appendectomy&#39; &#39;Cast and Physical Therapy&#39;
+ &#39;Cardiac Catheterization&#39; &#39;Epinephrine Injection&#39; &#39;Antibiotics and Rest&#39;
+ &#39;Radiation Therapy&#39; &#39;Delivery and Postnatal Care&#39; &#39;Lithotripsy&#39;
+ &#39;Physical Therapy and Pain Management&#39;]
+Procedure
+Cast and Physical Therapy               67
+Cardiac Catheterization                 67
+X-Ray and Splint                        66
+Medication and Counseling               66
+Appendectomy                            66
+Surgery and Chemotherapy                66
+CT Scan and Medication                  66
+Epinephrine Injection                   66
+Insulin Therapy                         65
+Angioplasty                             65
+Antibiotics and Rest                    65
+Radiation Therapy                       65
+Delivery and Postnatal Care             65
+Lithotripsy                             65
+Physical Therapy and Pain Management    64
+Name: count, dtype: int64
+
+Kolom: Readmission
+[&#39;No&#39; &#39;Yes&#39;]
+Readmission
+No     720
+Yes    264
+Name: count, dtype: int64
+
+Kolom: Outcome
+[&#39;Recovered&#39; &#39;Stable&#39;]
+Outcome
+Recovered    591
+Stable       393
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="kolerasi-antar-table">
+<h1>Kolerasi antar table<a class="headerlink" href="#kolerasi-antar-table" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Korelasi numerik</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Matriks Korelasi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5581cb99eb8595702f5f2292cec2164a9a587d053f97ea422b9702605d96764a.png" src="_images/5581cb99eb8595702f5f2292cec2164a9a587d053f97ea422b9702605d96764a.png" />
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -919,16 +1040,29 @@ Jumlah baris data yang terduplikasi sepenuhnya: 23
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memuat-data">Memuat Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laporan-tipe-data">laporan tipe data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">📊 Eksplorasi Data (EDA)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memuat-data">1. Memuat Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informasi-dasar-data">2. Informasi Dasar Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-values">3. Cek Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-tipe-data">4. Analisis Tipe Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-outlier">5. Analisis Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data">6. Distribusi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsistensi-data-kategorikal">7. Konsistensi Data Kategorikal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korelasi-antar-variabel">8. Korelasi Antar Variabel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values">9. Handling Missing Values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpan-data-bersih">10. Simpan Data Bersih</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Memuat Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-informasi-data">Cek Informasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laporan-missing-values">laporan missing values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-deteksi-outlier-pada-kolom-age">📊 Penjelasan Deteksi Outlier pada Kolom <code class="docutils literal notranslate"><span class="pre">Age</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah">📌 Langkah-langkah:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inti-dari-iqr">✨ Inti dari IQR</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laporan-duplikasi-data">laporan duplikasi data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Analisis tipe data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisi-outlier-numerik">Analisi outlier numerik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data-numerik">Distribusi data numerik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsistensi-data">Konsistensi data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kolerasi-antar-table">Kolerasi antar table</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
